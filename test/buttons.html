@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Spartan&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<title>buttons</title>
+
+	<style>
+
+		.btn {
+			display: inline-block;
+			width: 49%;
+			margin-top: 15px;
+			margin-right: 1%;
+			text-align: center;
+			float: left;
+		}
+
+		.btn-ok__wrapper {
+			width: 100px;
+			height: 30px;
+			border: 2px solid black;
+			margin: 0 auto;
+		}
+
+		.btn-ok {
+			font-family: 'Arial', sans-serif;
+			letter-spacing: 3px;
+			width: 100px;
+			height: 30px;
+			background-color: #33d5e2;
+			border: none;
+		}
+
+		.btn-ok:hover {
+			cursor: pointer;
+			background-color: #2bb7c2;
+		}
+
+		.btn-ok:active {
+			position: relative;
+			top: 5px;
+			left: 5px;
+			z-index: -1;
+		}
+
+		.btn-edit {
+			width: 100px;
+			height: 34px;
+			background-color: #355df0;
+			font-family: 'Arial', sans-serif;
+			color: white;
+			font-size: 20px;
+			font-weight: bold;
+			border: none;
+			border-radius: 3px;
+		}
+
+		.btn-edit__icon {
+			font-size: 20px;
+			margin-right: 5px;
+		}
+
+		.btn-edit:hover {
+			cursor: pointer;
+			background-color: #301bbe;
+		}
+
+		.btn-edit:active {
+			background-color: white;
+			color: #301bbe;
+			outline: #301bbe solid 1px;
+		}
+
+		.btn-next {
+			font-family: 'Pacifico', cursive;
+			font-size: 20px;
+			color: white;
+			width: 150px;
+			height: 50px;
+			border-radius: 5px;
+			border: none;
+			border-bottom: #ba436d solid 3px;
+			background-color: #e68baf;
+		}
+
+		.btn-next:hover {
+			cursor: pointer;
+			background: rgb(230,139,175);
+			background: linear-gradient(180deg, rgba(230,139,175,1) 0%, rgba(217,54,112,1) 100%);
+		}
+
+		.btn-next:active {
+			box-shadow: -10px -10px 15px -20px rgba(0, 0, 0, 0.4) inset, 
+									10px 10px 15px -20px rgba(0, 0, 0, 0.4) inset,
+									-10px 10px 15px -20px rgba(0, 0, 0, 0.4) inset,
+									10px -10px 15px -20px rgba(0, 0, 0, 0.4) inset;
+		}
+
+		.btn-go {
+			font-family: 'Spartan', sans-serif;
+			width: 150px;
+			height: 53px;
+			border-radius: 26.5px;
+			border: none;
+			background: rgb(200,160,233);
+			background: linear-gradient(90deg, rgba(200,160,233,1) 0%, rgba(252,199,243,1) 49%, rgba(165,213,253,1) 100%);
+			text-align: right;
+			color: white;
+			font-size: 24px;
+		}
+
+		.btn-go__icon {
+			display: inline-block;
+			outline: white 1px solid;
+			width: 35px;
+			height: 30px;
+			border-radius: 17.5px;
+			text-align: center;
+			padding-top: 5px;
+			margin-right: 9px;
+			transition-property: width;
+			transition-duration: 1s;
+		}
+
+		.btn-go:hover {
+			cursor: pointer;
+		}
+
+		.btn-go:hover .btn-go__icon {
+			width: 120px;
+		}
+
+		.btn-go:active {
+			background: #aad4fe;
+		}
+
+		.btn-go:active .btn-go__icon {
+			width: 35px;
+			margin-right: 94px;
+			margin-left: 9px;
+		}
+
+		.btn-translate {
+			display: inline-block;
+			height: 60px;
+			width: 60px;
+			text-decoration: none;
+			color: #5987ec;
+			background-color: white;
+			border-radius: 5px;
+			border-top: #878787 solid 1px;
+			border-left: #878787 solid 1px;
+			border-bottom: black solid 2px;
+			border-right: black solid 2px;
+		}
+
+		.btn-translate__icon {
+			font-size: 40px;
+			padding-top: 10px;
+		}
+
+		.btn-translate:hover {
+			background-color: #d4d4d4;
+			color: blue;
+		}
+
+		.btn-translate:active {
+			border-bottom: #878787 solid 1px;
+			border-right: #878787 solid 1px;
+			border-top: black solid 2px;
+			border-left: black solid 2px;
+		}
+
+		.btn-done {
+			height: 60px;
+			width: 60px;
+			border-radius: 50%;
+			border: none;
+			background-color: white;
+			box-shadow: 0 4px 10px rgba(0,0,0, 0.25), 
+									inset 0 3px 0 rgba(255,255,255, 0.5), 
+									0 3px 0 rgba(0,0,0, 0.1), 
+									inset 0 0 10px rgba(0,0,0, 0.1);
+		}
+
+		.btn-done__icon {
+			font-size: 30px;
+			font-weight: bold;
+		}
+
+		.btn-done:hover {
+			background-color: #f3f3f3;
+			cursor: pointer;
+		}
+
+		.btn-done:hover .btn-done__icon {
+			color: #4a9935;
+		}
+
+		.btn-done:active {
+			box-shadow: inset 0 0 10px rgba(0,0,0,0.2), 
+									0 3px 0 rgba(255,255,255,0.4),
+									inset 0 3px 0 rgba(0,0,0,0.1), 
+									inset 0 0 10px rgba(0,0,0,0.1);
+		}
+
+		.btn-done:active .btn-done__icon {
+			color: #265d17;;
+		}
+
+		@media (max-width: 480px) {
+			.btn {
+				width: 100%;
+			}
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="btn">
+		<div class="btn-ok__wrapper">
+			<button class="btn-ok">OK</button>
+		</div>
+	</div>
+
+	<div class="btn">
+		<button class="btn-edit"><span class="material-icons material-icons-outlined btn-edit__icon">edit</span>Edit</button>
+	</div>
+
+	<div class="btn">
+		<button class="btn-next">Продолжить</button>
+	</div>
+
+	<div class="btn">
+		<button class="btn-go"><span class="btn-go__icon">&gt;</span></button>
+	</div>
+
+	<div class="btn">
+		<a href="https://translate.google.by/" target="_blank" class="btn-translate"><span class="material-icons material-icons-outlined btn-translate__icon">g_translate</span></a>
+	</div>
+
+	<div class="btn">
+		<button class="btn-done"><span class="material-icons material-icons-outlined btn-done__icon">done</span></button>
+	</div>
+
+</body>
+</html>
