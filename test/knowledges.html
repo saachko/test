@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+	<title>Knowledges</title>
+
+	<style>
+
+		body {
+			background-color: #f8f8f8;
+			font-family: 'Open Sans', sans-serif;
+		}
+
+		.container {
+			width: 700px;
+			height: 370px;
+			margin: 30px auto;
+			box-shadow: 0 2px 1px 1px #d6d6d6;
+			background-color: white;
+		}
+
+		.title {
+			padding: 40px 20px 20px;
+		}
+
+		.text {
+			padding: 0 20px;
+			margin-bottom: 0;
+		}
+
+		.progress {
+			margin: 0 20px 15px;
+			height: 20px;
+			width: 660px;
+			background-color: #eeeeee;
+			border-radius: 10px;
+			box-shadow: 0 2px 1px 0px #dedede inset;
+			position: relative;
+		}
+
+		.progress__value {
+			position: absolute;
+			top: 2px;
+			left: 2px;
+			height: 16px;
+			border-radius: 8px;
+		}
+
+		.progress__value_html {
+			width: 458px;
+			background-color: #f4ba60;
+			box-shadow: 0 -2px 1px 0px #e5b263 inset;
+			animation: Animation-html 3s ease-in;
+			animation-delay: 4s;
+		}
+
+		.progress__value_css {
+			width: 392px;
+			background-color: #9076c8;
+			box-shadow: 0 -2px 1px 0px #846cbc inset;
+			animation: Animation-css 3s ease-in;
+			animation-delay: 4s;
+		}
+
+		.progress__value_js {
+			width: 326px;
+			background-color: #de5e56;
+			box-shadow: 0 -2px 1px 0px #d45951 inset;
+			animation: Animation-js 3s ease-in;
+			animation-delay: 4s;
+		}
+
+		.progress__value_jq {
+			width: 260px;
+			background-color: #7ab972;
+			box-shadow: 0 -2px 1px 0px #73b16b inset;
+			animation: Animation-jq 3s ease-in;
+			animation-delay: 4s;
+		}
+
+		@keyframes Animation-html 
+		{
+			from { width: 16px; }
+			to {width: 458px;}
+		}
+
+		@keyframes Animation-css 
+		{
+			from { width: 16px; }
+			to {width: 392px;}
+		}
+
+		@keyframes Animation-js 
+		{
+			from { width: 16px; }
+			to {width: 326px;}
+		}
+
+		@keyframes Animation-jq 
+		{
+			from { width: 16px; }
+			to {width: 260px;}
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="container">
+		<h3 class="title">Мои знания:</h3>
+
+		<p class="text">HTML</p>
+		<div class="progress">
+			<div class="progress__value progress__value_html"></div>
+		</div>
+
+		<p class="text">CSS</p>
+		<div class="progress">
+			<div class="progress__value progress__value_css"></div>
+		</div>
+
+		<p class="text">JavaScript</p>
+		<div class="progress">
+			<div class="progress__value progress__value_js"></div>
+		</div>
+
+		<p class="text">jQuery</p>
+		<div class="progress">
+			<div class="progress__value progress__value_jq"></div>
+		</div>
+
+
+	</div>
+
+</body>
+</html>
