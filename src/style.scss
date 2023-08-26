@@ -22,3 +22,37 @@ $light-coral: #ffdede;
     padding-top: 6px;
   }
 }
+
+.loader-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.loader {
+  content: ' ';
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 12px solid $light-coral;
+  border-color: $light-coral transparent $light-coral transparent;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
