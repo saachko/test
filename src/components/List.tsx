@@ -1,24 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import VirtualizedList from 'react-virtualized/dist/es/List';
 import WindowScroller from 'react-virtualized/dist/es/WindowScroller';
 import { v4 } from 'uuid';
 import clsx from 'clsx';
 
 import { useAppDispatch, useAppSelector } from '../store';
-import { setSelected, removeSelection } from '../store/app/slice';
+import {
+  setSelected,
+  setMultiSelected,
+  removeSelection
+} from '../store/app/slice';
 
 export const List: React.FC = () => {
+  const [isShiftPressed, setShiftPressed] = useState(false);
+
   const dispatch = useAppDispatch();
   const elements = useAppSelector((state) => state.app.elements);
   const selectedElements = useAppSelector(
     (state) => state.app.selectedElements
   );
+  const previousSelected = useAppSelector(
+    (state) => state.app.previousSelected
+  );
 
   const toggleSelection = (index: number): void => {
     if (!selectedElements.includes(index)) {
+      if (isShiftPressed) {
+        multiSelect(index);
+      }
       dispatch(setSelected(index));
     } else {
       dispatch(removeSelection(index));
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', () => setShiftPressed(true));
+    document.addEventListener('keyup', () => setShiftPressed(false));
+  }, []);
+
+  const multiSelect = (currentIndex: number): void => {
+    if (previousSelected) {
+      const max = Math.max(currentIndex, previousSelected);
+      const min = Math.min(currentIndex, previousSelected);
+      const indexes = [];
+      for (let i = min; i <= max; i++) {
+        indexes.push(i);
+      }
+      dispatch(setMultiSelected(indexes));
     }
   };
 

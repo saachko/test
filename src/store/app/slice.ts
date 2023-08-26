@@ -5,12 +5,14 @@ export interface AppState {
   isDataLoaded: boolean;
   elements: Array<string>;
   selectedElements: Array<number>;
+  previousSelected: number | null;
 }
 
 export const initialState: AppState = {
   isDataLoaded: false,
   elements: [],
-  selectedElements: []
+  selectedElements: [],
+  previousSelected: null
 };
 
 const appSlice = createSlice({
@@ -22,6 +24,11 @@ const appSlice = createSlice({
     },
     setSelected(state, action: PayloadAction<number>): void {
       state.selectedElements = [...state.selectedElements, action.payload];
+      state.previousSelected = action.payload;
+    },
+    setMultiSelected(state, action: PayloadAction<Array<number>>): void {
+      state.selectedElements = [...state.selectedElements, ...action.payload];
+      state.previousSelected = state.selectedElements.pop() || null;
     },
     removeSelection(state, action: PayloadAction<number>): void {
       state.selectedElements = state.selectedElements.filter(
@@ -40,6 +47,6 @@ const appSlice = createSlice({
   }
 });
 
-export const { setDataLoaded, setSelected, removeSelection } = appSlice.actions;
+export const { setDataLoaded, setSelected, setMultiSelected, removeSelection } = appSlice.actions;
 
 export const appReducer = appSlice.reducer;
