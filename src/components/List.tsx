@@ -23,6 +23,18 @@ export const List: React.FC = () => {
     (state) => state.app.previousSelected
   );
 
+  const multiSelect = (currentIndex: number): void => {
+    if (previousSelected) {
+      const max = Math.max(currentIndex, previousSelected);
+      const min = Math.min(currentIndex, previousSelected);
+      const indexes = [];
+      for (let i = min; i <= max; i++) {
+        indexes.push(i);
+      }
+      dispatch(setMultiSelected(indexes));
+    }
+  };
+
   const toggleSelection = (index: number): void => {
     if (!selectedElements.includes(index)) {
       if (isShiftPressed) {
@@ -38,18 +50,6 @@ export const List: React.FC = () => {
     document.addEventListener('keydown', () => setShiftPressed(true));
     document.addEventListener('keyup', () => setShiftPressed(false));
   }, []);
-
-  const multiSelect = (currentIndex: number): void => {
-    if (previousSelected) {
-      const max = Math.max(currentIndex, previousSelected);
-      const min = Math.min(currentIndex, previousSelected);
-      const indexes = [];
-      for (let i = min; i <= max; i++) {
-        indexes.push(i);
-      }
-      dispatch(setMultiSelected(indexes));
-    }
-  };
 
   return (
     <WindowScroller>

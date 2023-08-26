@@ -1,5 +1,6 @@
 $gray: #626262;
 $light-coral: #ffdede;
+$white: #ffffff;
 
 *,
 *::after,
@@ -10,6 +11,7 @@ $light-coral: #ffdede;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: $gray;
   overflow-x: hidden;
+  user-select: none;
 }
 
 .list {
@@ -19,6 +21,7 @@ $light-coral: #ffdede;
 
   &__item {
     border-bottom: 1px solid $light-coral;
+    background-color: $white;
     padding-top: 6px;
     transition: 0.2s all ease;
 

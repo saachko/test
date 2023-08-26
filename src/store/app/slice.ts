@@ -28,7 +28,7 @@ const appSlice = createSlice({
     },
     setMultiSelected(state, action: PayloadAction<Array<number>>): void {
       state.selectedElements = [...state.selectedElements, ...action.payload];
-      state.previousSelected = state.selectedElements.pop() || null;
+      state.previousSelected = state.selectedElements[state.selectedElements.length - 1] || null;
     },
     removeSelection(state, action: PayloadAction<number>): void {
       state.selectedElements = state.selectedElements.filter(
