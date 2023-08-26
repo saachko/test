@@ -20,6 +20,13 @@ $light-coral: #ffdede;
   &__item {
     border-bottom: 1px solid $light-coral;
     padding-top: 6px;
+    transition: 0.2s all ease;
+
+    &:hover,
+    &.selected {
+      cursor: pointer;
+      background-color: $light-coral;
+    }
   }
 }
 
