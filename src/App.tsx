@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from './store';
 import { loadData } from './store/app/thunks';
+import { List } from './components/List';
 
 export const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -10,7 +11,5 @@ export const App: React.FC = () => {
     dispatch(loadData()).unwrap();
   }, []);
 
-  return <>
-    <p>{isDataLoaded ? 'Done' : 'Loading'}</p>
-  </>;
+  return <>{isDataLoaded ? <List /> : <p>Loading</p>}</>;
 };
