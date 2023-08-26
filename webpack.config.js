@@ -26,12 +26,18 @@ const optimization = {
   ]
 };
 
-const rules = [{
-  test: /\.(tsx?)$/,
-  use: [{
-    loader: 'ts-loader'
-  }]
-}];
+const rules = [
+  {
+    test: /\.(tsx?)$/,
+    use: [{
+      loader: 'ts-loader'
+    }]
+  },
+  {
+    test: /\.s[ac]ss$/i,
+    use: ['style-loader', 'css-loader', 'sass-loader']
+  }
+];
 
 module.exports = {
   devServer: {
