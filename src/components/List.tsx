@@ -38,7 +38,7 @@ export const List: React.FC = () => {
 
   const toggleSelection = (index: number): void => {
     if (!selectedElements.includes(index)) {
-      if (isShiftPressed) {
+      if (isShiftPressed && previousSelected) {
         multiSelect(index);
       } else {
         dispatch(setSelected(index));

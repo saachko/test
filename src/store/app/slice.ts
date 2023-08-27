@@ -38,9 +38,11 @@ const appSlice = createSlice({
       state.selectedElements = state.selectedElements.filter(
         (item) => item !== action.payload
       );
+      state.previousSelected = null;
     },
     removeAllSelections(state): void {
       state.selectedElements = [];
+      state.previousSelected = null;
     }
   },
   extraReducers(builder) {
