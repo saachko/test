@@ -66,3 +66,18 @@ $white: #ffffff;
     transform: rotate(360deg);
   }
 }
+
+.button {
+  &_clear {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: 0.2s all ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

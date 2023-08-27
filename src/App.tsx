@@ -5,6 +5,7 @@ import { loadData } from './store/app/thunks';
 
 import { List } from './components/List';
 import { Loader } from './components/Loader';
+import { ClearButton } from './components/ClearButton';
 
 export const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -14,5 +15,16 @@ export const App: React.FC = () => {
     dispatch(loadData()).unwrap();
   }, []);
 
-  return <>{isDataLoaded ? <List /> : <Loader />}</>;
+  return (
+    <>
+      {isDataLoaded ? (
+        <>
+          <List />
+          <ClearButton />
+        </>
+      ) : (
+        <Loader />
+      )}
+    </>
+  );
 };

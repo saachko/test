@@ -34,6 +34,9 @@ const appSlice = createSlice({
       state.selectedElements = state.selectedElements.filter(
         (item) => item !== action.payload
       );
+    },
+    removeAllSelections(state): void {
+      state.selectedElements = [];
     }
   },
   extraReducers(builder) {
@@ -47,6 +50,12 @@ const appSlice = createSlice({
   }
 });
 
-export const { setDataLoaded, setSelected, setMultiSelected, removeSelection } = appSlice.actions;
+export const {
+  setDataLoaded,
+  setSelected,
+  setMultiSelected,
+  removeSelection,
+  removeAllSelections
+} = appSlice.actions;
 
 export const appReducer = appSlice.reducer;
