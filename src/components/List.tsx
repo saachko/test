@@ -13,6 +13,7 @@ import {
 
 export const List: React.FC = () => {
   const [isShiftPressed, setShiftPressed] = useState(false);
+  const [selectedInfo, setSelectedInfo] = useState<Array<number>>([]);
 
   const dispatch = useAppDispatch();
   const elements = useAppSelector((state) => state.app.elements);
@@ -39,8 +40,9 @@ export const List: React.FC = () => {
     if (!selectedElements.includes(index)) {
       if (isShiftPressed) {
         multiSelect(index);
+      } else {
+        dispatch(setSelected(index));
       }
-      dispatch(setSelected(index));
     } else {
       dispatch(removeSelection(index));
     }
@@ -50,6 +52,19 @@ export const List: React.FC = () => {
     document.addEventListener('keydown', () => setShiftPressed(true));
     document.addEventListener('keyup', () => setShiftPressed(false));
   }, []);
+
+  useEffect(() => {
+    const newElements = selectedElements.filter(
+      (element) => !selectedInfo.includes(element)
+    );
+    const removedElements = selectedInfo.filter(
+      (element) => !selectedElements.includes(element)
+    );
+    console.info(`Selected elements: [${selectedElements}]`);
+    console.info(`Recently selected elements: [${newElements}]`);
+    console.info(`Recently deselected elements: [${removedElements}]`);
+    setSelectedInfo(selectedElements);
+  }, [selectedElements]);
 
   return (
     <WindowScroller>
